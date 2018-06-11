@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+	<body>
+
+		<style>
+		html,body{
+
+			height: 100%;
+				width: 100%;
+				padding: 0;
+				margin: 0;
+
+			background: #c46ec9;
+			background: -moz-linear-gradient(top, #c46ec9 0%, #96ed84 100%);
+			background: -webkit-linear-gradient(top, #c46ec9 0%,#96ed84 100%);
+			background: linear-gradient(to bottom, #c46ec9 0%,#96ed84 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c46ec9', endColorstr='#96ed84',GradientType=0 );
+		</style>
+
+		<p> open the console :): </p>
+		<script>
+
+			var teams = [
+				[
+					{
+						name : "Jay",
+						score:0
+					},
+					{
+						name : "Jason",
+						score:0
+					},
+					{
+						name : "Jade",
+						score:0
+					},
+					{
+						name : "Jaden",
+						score:0
+					}
+				],
+				[
+					{name : "Mazen", score:0},
+					{name : "Xavier", score:0},
+					{name : "Rose", score:0},
+					{name : "Raye", score:0}
+				]
+			];
+
+			// console.log(teams[0][0]['name']);
+
+
+			for(round = 1; round < 11; round++) {
+				console.log( 'This is round ' + round);
+
+				for(var team = 0; team < 2; team++) {
+
+					console.log( 'Its the turn of team ' + (team+1));
+
+					for(var player = 0; player < 4; player++) {
+
+						var firstThrow = bowl(0);
+						var secondThrow = bowl(firstThrow);
+
+						console.log(teams[team][player]['name'] + ' throws the first round ' +  [firstThrow] + ' pins');
+						console.log(teams[team][player]['name'] + ' throws the second round ' + [secondThrow] + ' pins');
+
+						console.log('Total of: '+ (firstThrow + secondThrow) + ' points');
+
+						teams[team][player]['score'] += (firstThrow + secondThrow);
+
+						console.log("");
+
+
+					}
+
+
+				}
+			}
+
+			console.log('Lets count all the scores:');
+
+			console.log(teams[0][0]['name']+' has a score of: '+teams[0][0]['score'] + ' points')
+			console.log(teams[0][1]['name']+' has a score of: '+teams[0][1]['score'] + ' points')
+			console.log(teams[0][2]['name']+' has a score of: '+teams[0][2]['score'] + ' points')
+			console.log(teams[0][3]['name']+' has a score of: '+teams[0][3]['score'] + ' points')
+			console.log(teams[1][0]['name']+' has a score of: '+teams[1][0]['score'] + ' points')
+			console.log(teams[1][1]['name']+' has a score of: '+teams[1][1]['score'] + ' points')
+			console.log(teams[1][2]['name']+' has a score of: '+teams[1][2]['score'] + ' points')
+			console.log(teams[1][3]['name']+' has a score of: '+teams[1][3]['score'] + ' points')
+
+		function bowl(pinsKnockedOver) {
+			return Math.floor(Math.random() * (11 - pinsKnockedOver));
+		}
+
+
+
+		</script>
+
+</body>
+</html>
